@@ -25,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return "create-page";
     }
 
     /**
@@ -41,7 +41,7 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return "show-page";
     }
 
     /**
@@ -49,7 +49,7 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return "edit-page";
     }
 
     /**
