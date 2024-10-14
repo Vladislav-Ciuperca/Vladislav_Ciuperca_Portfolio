@@ -13,7 +13,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return "ok per index";
+        $categoryes = Category::all();
+        $data = [
+            "categoryes" => $categoryes,
+        ];
+
+        return view('admin.Categoryes.index', $data);
     }
 
     /**
@@ -35,10 +40,18 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $category)
+    public function show(string $id)
     {
-        return "ok per show";
+        // $categoryes = Category::all();
+        $singleCategory = Category::find($id);
+        $data = [
+            "singleCategory" => $singleCategory
+            // "singleCategory" => $categoryes[$id],
+        ];
+        // dd($data);
+        return view('admin.Categoryes.show', $data);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

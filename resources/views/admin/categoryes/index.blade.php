@@ -8,16 +8,12 @@
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
-                        questa e la pagiona dei progetti
+                        questa e la pagiona delle categorie
 
-                        @foreach ($projects as $project)
-                            <pre><h1>{{ $project->name }}</h1></pre>
+                        @foreach ($categoryes as $category)
+                            <pre><h1>{{ $category->name }}</h1></pre>
+                            <pre><h1>{{ $category->icon }}</h1></pre>
 
-                            <img src="{{$project->img}}" alt="">
-
-                            @foreach (json_decode($project->tecnologies) as $item)
-                                <pre>{{$item}}</pre>
-                            @endforeach
 
                         @endforeach
 

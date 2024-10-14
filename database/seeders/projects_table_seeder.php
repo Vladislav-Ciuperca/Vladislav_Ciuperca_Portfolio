@@ -17,7 +17,7 @@ class projects_table_seeder extends Seeder
         for ($i=0; $i < 5; $i++) { 
             
             $new_project = new project();
-            $new_project -> name = 'progetto_'.$i;
+            $new_project -> name = 'progetto_'.$i+1;
             $new_project -> img = 'https://www.dequo.it/articoli/app/uploads/2023/05/copyright-immagini-generate-ai12.jpg';
             $new_project -> description = 'progetto molto bello blabalaba';
             $new_project -> tecnologies = json_encode(['PHP.'.$i,'Laravel','Vue','CSS',]);

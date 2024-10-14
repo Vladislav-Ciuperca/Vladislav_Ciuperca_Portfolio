@@ -17,7 +17,7 @@ class ProjectController extends Controller
         $data = [
             "projects" => $projects,
         ];
-        return view('admin.projects', $data);
+        return view('admin.projects.index', $data);
     }
 
     /**
@@ -39,9 +39,12 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(project $project)
     {
-        return "show-page";
+        $data = [
+            "singleProject" => $project,
+        ];
+        return view('admin.projects.show', $data);
     }
 
     /**
