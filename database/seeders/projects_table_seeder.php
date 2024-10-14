@@ -14,13 +14,13 @@ class projects_table_seeder extends Seeder
     public function run(): void
     {
 
-        for ($i=0; $i < 5; $i++) { 
+        for ($i=0; $i < 15; $i++) { 
             
             $new_project = new project();
             $new_project -> name = 'progetto_'.$i+1;
             $new_project -> img = 'https://www.dequo.it/articoli/app/uploads/2023/05/copyright-immagini-generate-ai12.jpg';
             $new_project -> description = 'progetto molto bello blabalaba';
-            $new_project -> tecnologies = json_encode(['PHP.'.$i,'Laravel','Vue','CSS',]);
+            $new_project -> category_id = random_int(1, 6);
             $new_project ->save();
         }
 

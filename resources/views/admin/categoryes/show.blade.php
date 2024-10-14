@@ -12,7 +12,6 @@
                         
                         <pre><h1>{{ $singleCategory->name }}</h1></pre>
                         <pre><h1>{{ $singleCategory->icon }}</h1></pre>
-                        <h1><i class="{{ $singleCategory->icon }}"></i></h1>
                         <pre><h1>{{ $singleCategory->id }}</h1></pre>
                         
                     </div>
