@@ -1,1 +1,11 @@
-@import '~bootstrap/scss/bootstrap'
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+
+$fa-font-path: '~fontawesome/webfonts';
+@import '~fontawesome/scss/fontawesome';
+@import '~fontawesome/scss/brands';
+@import '~fontawesome/scss/regular';
+@import '~fontawesome/scss/solid';
