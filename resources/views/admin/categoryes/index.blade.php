@@ -13,10 +13,7 @@
                         @foreach ($categoryes as $category)
                             <pre><h1>{{ $category->name }}</h1></pre>
                             <pre><h1>{{ $category->icon }}</h1></pre>
-
-
                         @endforeach
-
 
                     </div>
                 </div>

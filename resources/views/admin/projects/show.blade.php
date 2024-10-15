@@ -10,10 +10,10 @@
                     <div class="card-body">
                         <h2> questa e la pagiona del singolo progetto</h2>
 
-                        <pre><h1>{{ $singleProject->name }}</h1></pre>
+                        <h1>{{ $singleProject->name }}</h1>
                         <img src="{{ $singleProject->img }}" alt="">
-                        <pre><h1>{{ $singleProject->description }}</h1></pre>
-                        
+                        <h1>{{ $singleProject->description }}</h1>
+                        <a href="{{$singleProject->codeLink}}">Guarda questo progetto su GitHub</a>
                     </div>
                 </div>
             </div>

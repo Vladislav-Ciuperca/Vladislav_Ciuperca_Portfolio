@@ -25,7 +25,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return "create-page";
+        return view('admin.projects.create');
     }
 
     /**

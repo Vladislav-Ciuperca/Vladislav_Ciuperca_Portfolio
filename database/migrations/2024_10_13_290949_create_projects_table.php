@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('img');
             $table->string('description');
+            $table->string('codeLink');
             $table->foreignId('category_id')->constrained();
 
             $table->timestamps();
