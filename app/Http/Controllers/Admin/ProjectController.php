@@ -33,7 +33,18 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+
+        $newProject = new project();
+        $newProject->name = $data['name'];
+        $newProject->img = $data['img'];
+        $newProject->description = $data['description'];
+        $newProject->codeLink = $data['codeLink'];
+        $newProject->category_id = $data['category_id'];
+        
+        $newProject->save();
+        
+        return redirect()->route('admin.projects.show',$newProject->id);
     }
 
     /**
@@ -46,13 +57,17 @@ class ProjectController extends Controller
         ];
         return view('admin.projects.show', $data);
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(project $project)
     {
-        return "edit-page";
+        $data = [
+            "singleProject" => $project,
+        ];
+        // dd($data);
+        return view('admin.projects.edit', $data);
     }
 
     /**
@@ -60,7 +75,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $request;
     }
 
     /**
