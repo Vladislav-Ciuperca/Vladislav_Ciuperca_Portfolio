@@ -33,7 +33,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
+        $data = $request->all();
 
         $newProject = new project();
         $newProject->name = $data['name'];
@@ -41,10 +41,10 @@ class ProjectController extends Controller
         $newProject->description = $data['description'];
         $newProject->codeLink = $data['codeLink'];
         $newProject->category_id = $data['category_id'];
-        
+
         $newProject->save();
-        
-        return redirect()->route('admin.projects.show',$newProject->id);
+
+        return redirect()->route('admin.projects.show', $newProject->id);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProjectController extends Controller
         ];
         return view('admin.projects.show', $data);
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      */
@@ -73,9 +73,20 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, project $project)
     {
-        return $request;
+        $data = $request->all();
+
+
+        $project->name = $data['name'];
+        $project->img = $data['img'];
+        $project->description = $data['description'];
+        $project->codeLink = $data['codeLink'];
+        $project->category_id = $data['category_id'];
+
+        $project->save();
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -83,6 +94,8 @@ class ProjectController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $project = project::findOrFail($id);
+        $project->delete();
+        return redirect()->route('admin.projects.index');
     }
 }

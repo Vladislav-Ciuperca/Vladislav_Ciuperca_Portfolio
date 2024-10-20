@@ -18,7 +18,7 @@ class CategoryController extends Controller
             "categoryes" => $categoryes,
         ];
 
-        return view('admin.Categoryes.index', $data);
+        return view('admin.categories.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return "ok per create";
+        return view('admin.categories.create');
     }
 
     /**
@@ -34,7 +34,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request -> all();
+
+        $newCategory = new category();
+
+        $newCategory->name = $request['name'];
+        $newCategory->icon = $request['icon'];
+
+        $newCategory->save();
+
+        return redirect()->route('admin.categories.show',$newCategory->id);
     }
 
     /**
@@ -49,16 +58,19 @@ class CategoryController extends Controller
             // "singleCategory" => $categoryes[$id],
         ];
         // dd($data);
-        return view('admin.Categoryes.show', $data);
+        return view('admin.categories.show', $data);
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
     {
-        return "ok per edit";
+        $data=[
+            'category' => $category
+        ];
+        return view('admin.categories.edit',$data);
     }
 
     /**
@@ -66,7 +78,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+       $data = $request -> all();
+
+       $category->name = $data['name'];
+       $category->icon = $data['icon'];
+
+       $category->save();
+
+       return redirect()->route('admin.categories.show',$category->id);
     }
 
     /**
@@ -74,6 +93,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->route('admin.categories.index');
     }
 }
