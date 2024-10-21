@@ -13,9 +13,15 @@
                             <div class="card-header">{{$project->name }}</div>
 
                             <div class="card-body">
-                                                                
+
                                 <img class="w-100" src="{{ $project->img }}" alt="">
-                                <h1>{{$project->tecnology->name}}</h1>
+
+                                @foreach ($project->technologies as $technology)
+                                    <pre>{{$technology->name}}</pre>
+                                @endforeach
+
+                                <pre>{{$project->categories()}}</pre>
+
 
                             </div>
                         </div>

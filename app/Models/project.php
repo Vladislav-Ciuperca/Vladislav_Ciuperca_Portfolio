@@ -6,11 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use PDO;
 
-class project extends Model
+class Project extends Model
 {
     use HasFactory;
 
-    public function tecnology(){
-        return $this->belongsToMany(Tecnology::class);
+    public function technologies(){
+        return $this->belongsToMany(Technology::class);
+    }
+
+    public function categories(){
+        return $this->belongsTo(category::class);
     }
 }

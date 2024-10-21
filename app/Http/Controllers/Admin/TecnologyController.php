@@ -3,22 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Tecnology;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
-class TecnologyController extends Controller
+class TechnologyController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tecnologies = Tecnology::all();
+        $technologies = Technology::all();
         $data = [
-            "tecnologies" => $tecnologies,
+            "technologies" => $technologies,
         ];
 
-        return view('admin.tecnologies.index', $data);
+        return view('admin.technologies.index', $data);
     }
 
     /**
@@ -26,7 +26,7 @@ class TecnologyController extends Controller
      */
     public function create()
     {
-        return view('admin.tecnologies.create');
+        return view('admin.technologies.create');
     }
 
     /**
@@ -36,14 +36,14 @@ class TecnologyController extends Controller
     {
         $request -> all();
 
-        $newTecnology = new Tecnology();
+        $newTechnology = new Technology();
 
-        $newTecnology->name = $request['name'];
-        $newTecnology->icon = $request['icon'];
+        $newTechnology->name = $request['name'];
+        $newTechnology->icon = $request['icon'];
 
-        $newTecnology->save();
+        $newTechnology->save();
 
-        return redirect()->route('admin.tecnologies.show',$newTecnology->id);
+        return redirect()->route('admin.technologies.show',$newTechnology->id);
     }
 
     /**
@@ -51,46 +51,46 @@ class TecnologyController extends Controller
      */
     public function show(string $id)
     {
-        $singleTecnology = Tecnology::find($id);
+        $singleTechnology = Technology::find($id);
         $data = [
-            "singleTecnology" => $singleTecnology
+            "singleTechnology" => $singleTechnology
         ];
-        return view('admin.tecnologies.show', $data);
+        return view('admin.technologies.show', $data);
     }
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Tecnology $tecnology)
+    public function edit(Technology $technology)
     {
         $data=[
-            'tecnology' => $tecnology
+            'technology' => $technology
         ];
-        return view('admin.tecnologies.edit',$data);
+        return view('admin.technologies.edit',$data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Tecnology $tecnology)
+    public function update(Request $request, Technology $technology)
     {
        $data = $request -> all();
 
-       $tecnology->name = $data['name'];
-       $tecnology->icon = $data['icon'];
+       $technology->name = $data['name'];
+       $technology->icon = $data['icon'];
 
-       $tecnology->save();
+       $technology->save();
 
-       return redirect()->route('admin.tecnologies.show',$tecnology->id);
+       return redirect()->route('admin.technologies.show',$technology->id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Tecnology $tecnology)
+    public function destroy(Technology $technology)
     {
-        $tecnology->delete();
-        return redirect()->route('admin.tecnologies.index');
+        $technology->delete();
+        return redirect()->route('admin.technologies.index');
     }
 }
