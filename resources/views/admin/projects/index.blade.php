@@ -20,7 +20,7 @@
                                     <pre>{{$technology->name}}</pre>
                                 @endforeach
 
-                                <pre>{{$project->categories()}}</pre>
+                                <h1>{{ $project->category->name}}</h1>
 
 
                             </div>

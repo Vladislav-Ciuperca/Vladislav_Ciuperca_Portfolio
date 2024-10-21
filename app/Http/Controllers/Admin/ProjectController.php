@@ -20,6 +20,7 @@ class ProjectController extends Controller
         $categories = Category::all();
         $technologies = Technology::all();
         $projects = project::all();
+
         $data = [
             "projects" => $projects,
             "technologies" => $technologies,
