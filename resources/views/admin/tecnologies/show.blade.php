@@ -8,11 +8,11 @@
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
-                        <h2> questa e la pagiona della singola categoria</h2>
+                        <h2> questa e la pagiona della singola tecnologia</h2>
                         
-                        <pre><h1>{{ $singleCategory->name }}</h1></pre>
-                        <pre><h1>{{ $singleCategory->icon }}</h1></pre>
-                        <pre><h1>{{ $singleCategory->id }}</h1></pre>
+                        <pre><h1>{{ $singleTecnology->name }}</h1></pre>
+                        <pre><h1>{{ $singleTecnology->icon }}</h1></pre>
+                        <pre><h1>{{ $singleTecnology->id }}</h1></pre>
                         
                     </div>
                 </div>

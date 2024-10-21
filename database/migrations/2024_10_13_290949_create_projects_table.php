@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('img');
             $table->string('description');
             $table->string('codeLink');
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('tecnology_id')->constrained();
 
             $table->timestamps();
         });

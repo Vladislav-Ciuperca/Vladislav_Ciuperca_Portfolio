@@ -21,7 +21,7 @@ class projects_table_seeder extends Seeder
             $new_project -> img = 'https://www.dequo.it/articoli/app/uploads/2023/05/copyright-immagini-generate-ai12.jpg';
             $new_project -> description = 'progetto molto bello blabalaba';
             $new_project -> codeLink = 'https://github.com/Vladislav-Ciuperca/Vladislav_Ciuperca_Portfolio';
-            $new_project -> category_id = random_int(1, 6);
+            $new_project -> tecnology_id = random_int(1, 6);
             $new_project ->save();
         }
 

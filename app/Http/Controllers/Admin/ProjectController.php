@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\project;
+use App\Models\Tecnology;
 
 class ProjectController extends Controller
 {
@@ -13,9 +14,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $tecnologies = Tecnology::all();
         $projects = project::all();
         $data = [
             "projects" => $projects,
+            "tecnologies" => $tecnologies,
         ];
         return view('admin.projects.index', $data);
     }
@@ -40,7 +43,7 @@ class ProjectController extends Controller
         $newProject->img = $data['img'];
         $newProject->description = $data['description'];
         $newProject->codeLink = $data['codeLink'];
-        $newProject->category_id = $data['category_id'];
+        $newProject->tecnology_id = $data['tecnology_id'];
 
         $newProject->save();
 
@@ -82,7 +85,7 @@ class ProjectController extends Controller
         $project->img = $data['img'];
         $project->description = $data['description'];
         $project->codeLink = $data['codeLink'];
-        $project->category_id = $data['category_id'];
+        $project->tecnology_id = $data['tecnology_id'];
 
         $project->save();
 

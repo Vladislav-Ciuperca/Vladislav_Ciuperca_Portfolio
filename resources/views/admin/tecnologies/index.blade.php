@@ -8,20 +8,20 @@
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
-                        questa e la pagiona delle categorie
+                        questa e la pagiona delle tecnologie
 
-                        <a class="btn btn-primary" href="{{ route('admin.categories.create')}}">Aggiungi una nuova categoria</a>
+                        <a class="btn btn-primary" href="{{ route('admin.tecnologies.create')}}">Aggiungi una nuova tecnologia</a>
 
-                        @foreach ($categoryes as $category)
-                        <a href="{{ route('admin.categories.show', $category->id) }}">
-                            <pre><h1>{{ $category->name }}</h1></pre>
-                            <h1><i class="{{ $category->icon }}"></i></h1>
+                        @foreach ($tecnologies as $tecnology)
+                        <a href="{{ route('admin.tecnologies.show', $tecnology->id) }}">
+                            <pre><h1>{{ $tecnology->name }}</h1></pre>
+                            <h1><i class="{{ $tecnology->icon }}"></i></h1>
 
-                            <a href="{{ route('admin.categories.edit', $category->id) }}">
+                            <a href="{{ route('admin.tecnologies.edit', $tecnology->id) }}">
                                 <button class="btn btn-primary d-flex">Modifica</button>
                             </a>
 
-                            <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                            <form action="{{ route('admin.tecnologies.destroy', $tecnology->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
 
