@@ -52,14 +52,7 @@ class ProjectSeeder extends Seeder
 
             $new_project->save();
 
-            // $nuemri = [
-            //     random_int(1, 6),
-            //     random_int(1, 6)
-            // ];
-
-
             $new_project->technologies()->attach($this->categoryNumber());
-            // $new_project -> technologies()->attach( random_int(1,6 ));
         }
     }
 }
