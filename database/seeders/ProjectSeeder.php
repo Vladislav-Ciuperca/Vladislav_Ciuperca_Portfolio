@@ -9,7 +9,7 @@ use App\Models\project;
 class ProjectSeeder extends Seeder
 {
     //  funzione ceh genera 2 numeri diversi //
-    public function randomNumbers()
+    public function categoryNumber()
     {
         $numbers = [];
         for ($i = 0; $i < 2; $i++) {
@@ -23,17 +23,32 @@ class ProjectSeeder extends Seeder
         return $numbers;
     }
 
+    public function imageNumber()
+    {
+        $avoidNumbers = [86, 97, 105, 138, 148, 150, 205, 207, 224, 226, 245, 246, 262, 285,286, 298];
+
+        do {
+            $randomNum = random_int(1, 300);
+        } while (in_array($randomNum, $avoidNumbers));
+
+
+        return $randomNum;
+    }
+
     public function run(): void
     {
 
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 300; $i++) {
+
+            $imageNumber = $this->imagenumber();
 
             $new_project = new project();
             $new_project->name = 'progetto_' . $i + 1;
-            $new_project->img = 'https://picsum.photos/id/' . random_int(1, 1083) . '/600/300';
+            $new_project->img = 'https://picsum.photos/id/' . $imageNumber . '/600/300';
             $new_project->description = 'progetto molto bello blabalaba';
             $new_project->codeLink = 'https://github.com/Vladislav-Ciuperca/Vladislav_Ciuperca_Portfolio';
             $new_project->category_id = random_int(1, 3);
+            $new_project->imageNum = $imageNumber;
 
             $new_project->save();
 
@@ -43,7 +58,7 @@ class ProjectSeeder extends Seeder
             // ];
 
 
-            $new_project->technologies()->attach($this->randomNumbers());
+            $new_project->technologies()->attach($this->categoryNumber());
             // $new_project -> technologies()->attach( random_int(1,6 ));
         }
     }

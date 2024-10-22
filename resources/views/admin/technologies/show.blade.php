@@ -10,9 +10,9 @@
                     <div class="card-body">
                         <h2> questa e la pagiona della singola tecnologia</h2>
                         
-                        <pre><h1>{{ $singleTecnology->name }}</h1></pre>
-                        <pre><h1>{{ $singleTecnology->icon }}</h1></pre>
-                        <pre><h1>{{ $singleTecnology->id }}</h1></pre>
+                        <pre><h1>{{ $singleTechnology->name }}</h1></pre>
+                        <pre><h1>{{ $singleTechnology->icon }}</h1></pre>
+                        <pre><h1>{{ $singleTechnology->id }}</h1></pre>
                         
                     </div>
                 </div>

@@ -10,7 +10,7 @@
                 <a class="col-md-4" href="{{ url('/admin/projects',$project) }}">
 
                         <div class="card border mt-5">
-                            <div class="card-header">{{$project->name }}</div>
+                            <div class="card-header">{{$project->name }} </div>
 
                             <div class="card-body">
 

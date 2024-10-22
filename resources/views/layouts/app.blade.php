@@ -55,7 +55,7 @@
                             <a class="nav-link" href="{{ url('/admin/projects') }}">{{ __('Projects') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/admin/tecnologies') }}">{{ __('tecnologies') }}</a>
+                            <a class="nav-link" href="{{ url('/admin/technologies') }}">{{ __('technologies') }}</a>
                         </li>
                     </ul>
 
