@@ -38,7 +38,7 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
 
-        for ($i = 0; $i < 300; $i++) {
+        for ($i = 0; $i < 15; $i++) {
 
             $imageNumber = $this->imagenumber();
 
