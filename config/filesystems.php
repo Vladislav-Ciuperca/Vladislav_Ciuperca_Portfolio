@@ -13,11 +13,11 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DISK', 'public'),
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | Filesystem Disks 
     |--------------------------------------------------------------------------
     |
     | Here you may configure as many filesystem "disks" as you wish, and you
