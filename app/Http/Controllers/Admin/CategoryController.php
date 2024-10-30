@@ -20,7 +20,6 @@ class CategoryController extends Controller
         ];
 
         return view('admin.categories.index', $data);
-       
     }
 
     /**
@@ -28,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -36,7 +35,16 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request ->all();
+
+        $newCategory = new Category();
+
+        $newCategory->name = $request["name"];
+        $newCategory->icon = $request["icon"];
+        
+        $newCategory->save();
+
+        return redirect()->route('admin.categories.show', $newCategory->id);
     }
 
     /**
@@ -44,7 +52,12 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $singleCategory = Category::find($category->id);
+
+        $data = [
+            "singleCategory" => $singleCategory
+        ];
+        return view('admin.categories.show', $data);
     }
 
     /**
