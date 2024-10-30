@@ -38,7 +38,7 @@ class ProjectSeeder extends Seeder
     public function run(): void
     {
 
-        for ($i = 0; $i < 15; $i++) {
+        for ($i = 0; $i < 3; $i++) {
 
             $imageNumber = $this->imagenumber();
 
@@ -48,7 +48,6 @@ class ProjectSeeder extends Seeder
             $new_project->description = 'progetto molto bello blabalaba';
             $new_project->codeLink = 'https://github.com/Vladislav-Ciuperca/Vladislav_Ciuperca_Portfolio';
             $new_project->category_id = random_int(1, 3);
-            $new_project->imageNum = $imageNumber;
 
             $new_project->save();
 

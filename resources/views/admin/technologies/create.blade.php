@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-8 ofset-2">
                 <h1>Aggiungi una nupvav caegoria</h1>
-                <form method="POST" action="{{ route('admin.tecnologies.store') }}">
+                <form method="POST" action="{{ route('admin.technologies.store') }}">
                     @csrf
                     {{-- name --}}
                     <label for="basic-url" class="form-label">Nome Della tecnologia</label>

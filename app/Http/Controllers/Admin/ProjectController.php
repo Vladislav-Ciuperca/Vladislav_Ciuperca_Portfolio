@@ -42,6 +42,10 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'category_id' => ['required'],
+        ]);
+
         $data = $request->all();
 
         $newProject = new project();
@@ -49,7 +53,10 @@ class ProjectController extends Controller
         $newProject->img = $data['img'];
         $newProject->description = $data['description'];
         $newProject->codeLink = $data['codeLink'];
-        $newProject->technology_id = $data['technology_id'];
+        $newProject->category_id = $data['category_id'];
+
+      
+        // $newProject->category_id = 2;
 
         $newProject->save();
 
@@ -91,7 +98,7 @@ class ProjectController extends Controller
         $project->img = $data['img'];
         $project->description = $data['description'];
         $project->codeLink = $data['codeLink'];
-        $project->technology_id = $data['technology_id'];
+        $project->category_id = $data['category_id'];
 
         $project->save();
 

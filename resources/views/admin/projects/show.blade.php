@@ -8,10 +8,17 @@
                     <div class="card-header">{{ __('Dashboard') }}</div>
 
                     <div class="card-body">
-                        <h2> questa e la pagiona del singolo progetto</h2>
+                        <h2> questa e la pagiona del Progetto numero {{ $singleProject->id }}</h2>
 
-                        <h1>{{ $singleProject->name }}</h1>
-                        <h1>{{ $singleProject->id }}</h1>
+                        <h1>Nome</h1>
+                        <h3>{{ $singleProject->name }}</h3>
+                        <hr>
+
+                        <h1>info category</h1>
+                        <h3>{{ $singleProject->category->id}}</h3>
+                        <h3>{{ $singleProject->category->name}}</h3>
+                        <hr>
+
                         <img src="{{ $singleProject->img }}" alt="">
                         <h1>{{ $singleProject->description }}</h1>
                         <a href="{{ $singleProject->codeLink }}">Guarda questo progetto su GitHub</a>

@@ -26,7 +26,7 @@
                                 @csrf
                                 @method('DELETE')
 
-                                <button class="btn btn-danger" type="submit">Delete This Project</button>
+                                <button class="btn btn-danger" type="submit">Delete This Category</button>
                             </form>
                         @endforeach
 
@@ -37,3 +37,4 @@
         </div>
     </div>
 @endsection
+ 

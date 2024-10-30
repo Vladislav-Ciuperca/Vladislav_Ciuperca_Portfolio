@@ -39,7 +39,7 @@
                     </div>
 
                     {{-- category_id --}}
-                    <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
+                    {{-- <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
                         <select class="form-select" name="technology_id">
@@ -51,18 +51,21 @@
                             <option value="5">PHP</option>
                             <option value="6">Laravel</option>
                         </select>
-                    </div>
+                    </div> --}}
 
-                    {{-- <label for="basic-url" class="form-label">Seleziona una categoria</label>
+                    <label for="basic-url" class="form-label">Seleziona una categoria</label>
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
-                        <select class="form-select" name="technology_id">
-                            <option selected>Choose...</option>
-                            <option value="1">CSS</option>
-                            <option value="2">Bootstrap</option>
-                            <option value="3">JavaScript</option>
+                        <select class="form-select" name="category_id" palceholder="asd">
+                            <option value="" disabled selected>Choose a category...</option>
+                            <option value="1">Front-End</option>
+                            <option value="2">Back-End</option>
+                            <option value="3">Design only</option>
                         </select>
-                    </div> --}}
+                    </div>
+                    @error('category_id')
+                        <div class="badje text-bg-danger">You must select a Category first</div>
+                    @enderror
 
                     <button class="btn btn-primary" type="submit">Aggiungi</button>
 

@@ -44,6 +44,15 @@
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
                         <select class="form-select" name="category_id">
+                            <option value="1">Back-End</option>
+                            <option value="2">Front-End</option>
+                            <option value="3">Design only</option>
+                        </select>
+                    </div>
+                    {{-- <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text">Options</label>
+                        <select class="form-select" name="category_id">
                             <option selected>{{$singleProject->id}}</option>
                             <option value="1">CSS</option>
                             <option value="2">Bootstrap</option>
@@ -52,7 +61,7 @@
                             <option value="3">PHP</option>
                             <option value="3">Laravel</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <button class="btn btn-primary" type="submit">Modifica</button>
 

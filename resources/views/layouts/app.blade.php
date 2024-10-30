@@ -18,6 +18,7 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+    @vite('resources/scss/app.scss')
 </head>
 
 <body>
