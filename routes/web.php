@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TechnologyController;
@@ -34,6 +35,7 @@ Route::middleware(['auth'])
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('/projects',ProjectController::class);
         Route::resource('/technologies',TechnologyController::class);
+        Route::resource('/categories',CategoryController::class);
     });
 
 require __DIR__ . '/auth.php';

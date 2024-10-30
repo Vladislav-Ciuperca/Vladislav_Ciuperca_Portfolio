@@ -7,6 +7,7 @@
                 <h1>Aggiungi un progetto</h1>
                 <form method="POST" action="{{ route('admin.projects.store') }}">
                     @csrf
+
                     {{-- name --}}
                     <label for="basic-url" class="form-label">Nome Del Progetto</label>
                     <div class="input-group mb-3">
@@ -28,7 +29,6 @@
                         <input type="text" class="form-control" name="description">
                     </div>
 
-
                     {{-- GithubForm --}}
                     <div class="mb-3">
                         <label for="basic-url" class="form-label">Nome Della Repository</label>
@@ -42,16 +42,27 @@
                     <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
-                        <select class="form-select" name="category_id">
+                        <select class="form-select" name="technology_id">
                             <option selected>Choose...</option>
                             <option value="1">CSS</option>
                             <option value="2">Bootstrap</option>
                             <option value="3">JavaScript</option>
-                            <option value="3">Vuejs</option>
-                            <option value="3">PHP</option>
-                            <option value="3">Laravel</option>
+                            <option value="4">Vuejs</option>
+                            <option value="5">PHP</option>
+                            <option value="6">Laravel</option>
                         </select>
                     </div>
+
+                    {{-- <label for="basic-url" class="form-label">Seleziona una categoria</label>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text">Options</label>
+                        <select class="form-select" name="technology_id">
+                            <option selected>Choose...</option>
+                            <option value="1">CSS</option>
+                            <option value="2">Bootstrap</option>
+                            <option value="3">JavaScript</option>
+                        </select>
+                    </div> --}}
 
                     <button class="btn btn-primary" type="submit">Aggiungi</button>
 
