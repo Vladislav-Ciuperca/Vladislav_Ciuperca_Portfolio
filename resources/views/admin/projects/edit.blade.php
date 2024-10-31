@@ -11,10 +11,10 @@
                     {{-- name --}}
                     <label for="basic-url" class="form-label">Nome Del Progetto</label>
                     @error('name')
-                    <label for="basic-url" class="error_message vibrate">
-                        * il campo "nome" è obbligatorio *
-                    </label>
-                @enderror
+                        <label for="basic-url" class="error_message vibrate">
+                            * il campo "nome" è obbligatorio *
+                        </label>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">Nome</span>
                         <input type="text" class="form-control" name="name" value="{{ $singleProject->name }}">
@@ -57,8 +57,8 @@
                         <div class="input-group">
                             <span class="input-group-text">https://github.com/Vladislav-Ciuperca/</span>
                             <input type="text" class="form-control" name="codeLink"
-                                value="{{ Str::after($singleProject->codeLink,'https://github.com/Vladislav-Ciuperca/') }}">
-                                {{-- value="{{ $singleProject->codeLink }}"> --}}
+                                value="{{ Str::after($singleProject->codeLink, 'https://github.com/Vladislav-Ciuperca/') }}">
+                            {{-- value="{{ $singleProject->codeLink }}"> --}}
                         </div>
                     </div>
 
@@ -71,11 +71,40 @@
                     @enderror
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
-                        <select class="form-select" name="category_id">
-                            <option value="1">Back-End</option>
-                            <option value="2">Front-End</option>
-                            <option value="3">Design only</option>
+                        <select class="form-select" name="category_id" palceholder="asd">
+                            <option value="" disabled>Choose a category...</option>
+                            @foreach ($categories as $index => $category)
+                                <option value="{{ $index + 1 }}" @if ($singleProject->category->id == $index + 1) selected @endif>
+                                    {{ $category->name }}</option>
+                            @endforeach
                         </select>
+                    </div>
+
+
+
+                    {{-- technology_id --}}
+                    <label for="technology_id" class="form-label">Seleziona Tecnologie</label>
+                    @error('technology_id')
+                        <label class="error_message vibrate">
+                            * Devi selezionare almeno una tecnologia *
+                        </label>
+                    @enderror
+                    <div class="mb-3 ">
+                        @foreach ($technologies as $index => $technology)
+                            <div class="form-check btn-group">
+                                <input class="btn-check" type="checkbox"
+                                    @foreach ($singleProject->technologies as $item)
+                                    @if ($item->id == $index+1)
+                                        checked
+                                    @endif @endforeach
+                                    autocomplete="off" name="technologies[]" value="{{ $technology->id }}"
+                                    id="tech-{{ $technology->id }}">
+                                <label class="btn btn-outline-primary" for="tech-{{ $technology->id }}">
+                                    {{ $technology->name }}
+                                </label>
+
+                            </div>
+                        @endforeach
                     </div>
 
 

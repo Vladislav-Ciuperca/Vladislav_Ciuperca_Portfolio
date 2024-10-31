@@ -54,9 +54,12 @@ class ProjectController extends Controller
             'description' => ['required'],
             'codeLink' => ['required'],
             'category_id' => ['required'],
+            'technology_id' => ['array'],
         ]);
 
         $data = $request->all();
+
+        // dd($data);
 
         $newProject = new project();
         $newProject->name = $data['name'];
@@ -66,8 +69,9 @@ class ProjectController extends Controller
         $newProject->category_id = $data['category_id'];
 
         $newProject->save();
+
         
-        $newProject->technologies()->sync('technology_id');
+        $newProject->technologies()->attach($data['technologies']);
 
         return redirect()->route('admin.projects.show', $newProject->id);
     }
@@ -77,8 +81,12 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
+        // $categories = Category::all();
+        // $technologies = Technology::all();
         $data = [
             "singleProject" => $project,
+            // "categories" => $categories,
+            // "technologies" => $technologies,
         ];
         return view('admin.projects.show', $data);
     }
@@ -88,8 +96,12 @@ class ProjectController extends Controller
      */
     public function edit(project $project)
     {
+        $categories = Category::all();
+        $technologies = Technology::all();
         $data = [
             "singleProject" => $project,
+            "categories" => $categories,
+            "technologies" => $technologies,
         ];
         // dd($data);
         return view('admin.projects.edit', $data);
@@ -110,6 +122,10 @@ class ProjectController extends Controller
         $project->category_id = $data['category_id'];
 
         $project->save();
+
+        $project->technologies()->sync($data['technologies']);
+
+        // dd($project);
 
         return redirect()->route('admin.projects.show', $project->id);
     }
