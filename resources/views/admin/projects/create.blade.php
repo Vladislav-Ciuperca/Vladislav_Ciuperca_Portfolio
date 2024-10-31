@@ -10,65 +10,89 @@
 
                     {{-- name --}}
                     <label for="basic-url" class="form-label">Nome Del Progetto</label>
+                    @error('name')
+                        <label for="basic-url" class="error_message vibrate">
+                            * il campo "nome" è obbligatorio *
+                        </label>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">Default</span>
-                        <input type="text" class="form-control" name="img">
+                        <input required type="text" class="form-control" name="name">
                     </div>
 
                     {{-- img --}}
                     <label for="basic-url" class="form-label">Immagine</label>
+                    @error('img')
+                        <label for="basic-url" class="error_message vibrate">
+                            * il campo "immagine" è obbligatorio *
+                        </label>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">Default</span>
-                        <input type="text" class="form-control" name="name">
+                        <input required type="text" class="form-control" name="img">
                     </div>
 
                     {{-- descritpion --}}
                     <label for="basic-url" class="form-label">Descrizione</label>
+                    @error('description')
+                        <label for="basic-url" class="error_message vibrate">
+                            * il campo "descrizione" è obbligatorio *
+                        </label>
+                    @enderror
                     <div class="input-group mb-3">
                         <span class="input-group-text">Default</span>
-                        <input type="text" class="form-control" name="description">
+                        <input required type="text" class="form-control" name="description">
                     </div>
 
                     {{-- GithubForm --}}
                     <div class="mb-3">
                         <label for="basic-url" class="form-label">Nome Della Repository</label>
+                        @error('codeLink')
+                            <label for="basic-url" class="error_message vibrate">
+                                * il campo "Nome della Repository" è obbligatorio *
+                            </label>
+                        @enderror
                         <div class="input-group">
                             <span class="input-group-text">https://github.com/Vladislav-Ciuperca/</span>
-                            <input type="text" class="form-control" name="codeLink">
+                            <input required type="text" class="form-control" name="codeLink">
                         </div>
                     </div>
 
                     {{-- category_id --}}
-                    {{-- <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
-                    <div class="input-group mb-3">
-                        <label class="input-group-text">Options</label>
-                        <select class="form-select" name="technology_id">
-                            <option selected>Choose...</option>
-                            <option value="1">CSS</option>
-                            <option value="2">Bootstrap</option>
-                            <option value="3">JavaScript</option>
-                            <option value="4">Vuejs</option>
-                            <option value="5">PHP</option>
-                            <option value="6">Laravel</option>
-                        </select>
-                    </div> --}}
-
                     <label for="basic-url" class="form-label">Seleziona una categoria</label>
+                    @error('category_id')
+                        <label for="basic-url" class="error_message vibrate">
+                            {{$message}}
+                        </label>
+                    @enderror
                     <div class="input-group mb-3">
                         <label class="input-group-text">Options</label>
-                        <select class="form-select" name="category_id" palceholder="asd">
+                        <select  class="form-select" name="category_id" palceholder="asd">
                             <option value="" disabled selected>Choose a category...</option>
-                            <option value="1">Front-End</option>
-                            <option value="2">Back-End</option>
-                            <option value="3">Design only</option>
+                            @foreach ($categories as $index => $category)
+                                <option value="{{ $index + 1 }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
-                    @error('category_id')
-                        <div class="badje text-bg-danger">You must select a Category first</div>
-                    @enderror
+
+                     {{-- technology_id --}}
+                     <label for="basic-url" class="form-label">Seleziona una tecnologia</label>
+                     @error('technology_id')
+                         <label for="basic-url" class="error_message vibrate">
+                             {{$message}}
+                         </label>
+                     @enderror
+                     <div class="input-group mb-3">
+                         <label class="input-group-text">Options</label>
+                         <select  class="form-select" name="category_id" palceholder="asd">
+                             <option value="" disabled selected>Choose a technology...</option>
+                             @foreach ($technologies as $index => $technology)
+                                 <option value="{{ $index + 1 }}">{{ $technology->name }}</option>
+                             @endforeach
+                         </select>
+                     </div>
 
                     <button class="btn btn-primary" type="submit">Aggiungi</button>
-
                 </form>
             </div>
         </div>

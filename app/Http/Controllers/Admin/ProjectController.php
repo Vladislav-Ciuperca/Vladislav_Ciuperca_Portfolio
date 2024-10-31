@@ -34,7 +34,13 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $categories = Category::all();
+        $technologies = Technology::all();
+        $data = [
+            'categories' => $categories,
+            'technologies' => $technologies,
+        ];
+        return view('admin.projects.create', $data);
     }
 
     /**
@@ -43,6 +49,10 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => ['required'],
+            'img' => ['required'],
+            'description' => ['required'],
+            'codeLink' => ['required'],
             'category_id' => ['required'],
         ]);
 
@@ -52,13 +62,12 @@ class ProjectController extends Controller
         $newProject->name = $data['name'];
         $newProject->img = $data['img'];
         $newProject->description = $data['description'];
-        $newProject->codeLink = $data['codeLink'];
+        $newProject->codeLink = 'https://github.com/Vladislav-Ciuperca/' .  $data['codeLink'];
         $newProject->category_id = $data['category_id'];
 
-      
-        // $newProject->category_id = 2;
-
         $newProject->save();
+        
+        $newProject->technologies()->sync('technology_id');
 
         return redirect()->route('admin.projects.show', $newProject->id);
     }
